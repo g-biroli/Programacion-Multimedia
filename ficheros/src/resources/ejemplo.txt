@@ -1,0 +1,2 @@
+Esto es una linea en el ficheroSegunda lineaEsto es una linea en el fichero
+Segunda linea

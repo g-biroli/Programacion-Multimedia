@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class GestionFicheros {
 
@@ -26,6 +25,34 @@ public class GestionFicheros {
     public void flujoEscritura(String path){
         //File -> FileWriter -> BufferedWriter
         File file = new File(path);
+
+        FileWriter fw = null;
+        //BufferedWriter bw = null;
+        PrintWriter pw = null;
+
+        //Funcion para escribir dentro del archivo txt
+        try {
+             //fw = new FileWriter(file, true);
+             //fw.write("123\n");
+             //fw.write("Esto es otra linea");
+             //bw = new BufferedWriter(new FileWriter(file));
+             //bw.write("Esto en una linea");
+             //bw.newLine();
+             //bw.write("Segunda linea");
+            pw = new PrintWriter(new FileWriter(file, true));
+            pw.println("Esto es una linea en el fichero");
+            pw.println("Segunda linea");
+
+
+        } catch (IOException e) {
+            System.out.println("Error en la apertura del fichero");
+        }   finally {
+            try {
+                pw.close();
+            } catch (NullPointerException e) {
+                System.out.println("Error en el cerrado del fichero");
+            }
+        }
 
     }
 }
