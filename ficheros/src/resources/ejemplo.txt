@@ -1,2 +1,1 @@
-Esto es una linea en el ficheroSegunda lineaEsto es una linea en el fichero
-Segunda linea
+Esto lo escribo yo a mano

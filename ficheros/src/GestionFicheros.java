@@ -55,4 +55,45 @@ public class GestionFicheros {
         }
 
     }
+
+    public void flujoLectura(String path){
+        //File -> FileReader (caracter a caracter) -> BufferedReader (linea a linea)
+        File file = new File(path);
+        //FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            // fileReader = new FileReader(file);
+            // nt numeroASCI = fileReader.read();
+            bufferedReader = new BufferedReader(new FileReader(file));
+            String linea = null;
+            while ((linea= bufferedReader.readLine())!= null){
+                System.out.println(linea);
+            }
+        } catch (FileNotFoundException e) {     //Excepción de existir
+            System.out.println("El fichero no existe");
+        } catch (IOException e) {               //Excepción de permiso
+            System.out.println("Error en la lectura");
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException | NullPointerException e) {
+                System.out.println("Error en el cerrado");
+            }
+        }
+
+    }
+
+    public void flujoEscrituraObjetos(String path){
+        File file = new File(path);
+        ObjectOutputStream oos = null;
+
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(file));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+
+        }
+
+    }
 }
