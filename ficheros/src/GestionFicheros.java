@@ -21,4 +21,11 @@ public class GestionFicheros {
             }
         }
     }
+
+
+    public void flujoEscritura(String path){
+        //File -> FileWriter -> BufferedWriter
+        File file = new File(path);
+
+    }
 }
