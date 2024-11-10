@@ -22,8 +22,17 @@ public class Entrada {
             String linea = bufferedReader.readLine();
             JSONObject response = new JSONObject(linea);
             JSONArray results = response.getJSONArray("results");
-            System.out.println(results);
+            for ( Object user : results) {
+                if (user instanceof JSONObject){
+                    String mail = ((JSONObject) user).getString("email");
+                    String phone = ((JSONObject) user).getString("phone");
+                    String gender = ((JSONObject) user).getString("gender");
 
+                    System.out.println(mail);
+                    System.out.println(phone);
+                    System.out.println(gender);
+                }
+            }
 
         } catch (MalformedURLException e) {     //  Excepcion para verificar si el enlace esta bien
             System.out.println("La URL indicada no es valida");
