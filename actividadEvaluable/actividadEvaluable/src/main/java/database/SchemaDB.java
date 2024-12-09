@@ -17,4 +17,6 @@ public interface SchemaDB {
     String COL_MAIL = "correo";
     String COL_PH = "telefono";
     String COL_PASS = "pass";
+    String COL_DESC = "descripcion";
+    String COL_PRICE = "precio";
 }

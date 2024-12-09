@@ -5,9 +5,28 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-     public class Entrada {
+import static dao.UsuarioDAO.mostrarDatos;
+
+public class Entrada {
+
+
             public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
+                try {
+                    mostrarDatos("empleados");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    mostrarDatos("productos");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    mostrarDatos("pedidos");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
 
                 try {
                     System.out.println("Dime nombre a introducir");
