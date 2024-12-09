@@ -9,14 +9,14 @@ public class DBConnection {
 
     private static Connection connection;
 
-    private void createConnection() throws SQLException {
+    private static void createConnection() throws SQLException {
 
 
         String url = String.format("jdbc:mysql://%s:%s/%s",SchemaDB.Host, SchemaDB.PORT, SchemaDB.DB_NAME);
         connection = DriverManager.getConnection(url, "root", "");
     }
-    public Connection getConnection() throws SQLException {
-        if (connection == null){
+    public static Connection getConnection() throws SQLException {
+        if (connection == null || connection.isClosed()) {
             createConnection();
         }
         return connection;
